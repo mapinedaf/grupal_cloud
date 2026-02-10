@@ -1,0 +1,46 @@
+#pruebas de crud
+
+# Create 
+curl -X POST http://localhost:6767/shapes \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Circle",
+    "color": "Red",
+    "side": 2
+  }'
+
+# Read todas
+curl -X GET http://localhost:6767/shapes
+
+#rEAD
+curl -X GET http://localhost:6767/shapes/2
+
+#update
+curl -X PUT http://localhost:6767/shapes/2 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Updated Circle",
+    "color": "Green",
+    "sides": 4
+
+  }'
+
+# Delete s
+curl -X DELETE http://localhost:6767/shapes/2
+
+
+#Construir imagen docker
+docker build -t shape-app .
+
+#probar la imagen 
+docker run -d -p 6767:6767 --name shape-app shape-app
+
+#Proyecto grupal 
+Todo en terraform
+IaC automatizado
+Aprovisionar una instancia EC2 balanceada con un Elastic Load Balancing, la instancia debe tener un security group, y va a estar conectada a una base de datos RDS
+La instancia EC2 debe exponer una api restful, (crud de lo que sea) 
+TODO DEBE SER COMO IAC
+LITERAL TODO
+Al menos dos instancias, cuando cree un profe debe guardarse en la base rds
+#
